@@ -45,10 +45,12 @@ temp1&:=\theta_1-\alpha\frac{\partial}{\partial\theta_1}J(\theta_0,\theta_1)\\
 \theta_0& :=temp0\\
 \theta_1&:=temp1
 \end{align}\\$$
+
 ##### 相关名词解释
 * $\alpha$ 学习率(learning rate)：学习率决定了沿着能让代价函数下降程度最大的方向向下迈出的步子有多大，它只会影响算法收敛速度的快慢，因此选择合适的学习率很重要。
 * 梯度(Gradient)：偏导数 $\frac{\partial}{\partial \theta_j}J(\theta_0,\theta_1)$ 即为点 $(\theta_0,\theta_1)$ 处的梯度值
 * 同步更新(Simultaneous update)：梯度下降算法中，更新 $\theta_0,\theta_1$ 时需要同步更新两者，同步更新是一种更加自然的实现方法，在向量化实现中更加容易。
+
 ##### 算法具体实现
 * 偏导数 $\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$ 的求法
 $$\begin{align}
