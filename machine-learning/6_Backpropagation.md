@@ -7,7 +7,7 @@
 
 #### 二元分类与多类别分类
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/Nerual_Network4.png" width = "400">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/6_Backpropagation/Nerual_Network4.png" width = "400">
 </div>
 
 #### 逻辑回归的代价函数

@@ -11,7 +11,7 @@
 * 神经网络的组成：输入层(Input Layer)、隐藏层(Hidden Layer)、输出层(Output Layer)，每层可能会增加一个偏置单元(bias unit)
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/Neural_Network1.png" width = "400">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/5_Neural_networks/Neural_Network1.png" width = "400">
 </div>
 
 > $a_i^j$表示第 $j$ 层的第 $i$ 个激活单元\
@@ -19,7 +19,7 @@
 
 * 以第二层为例，激活单元和输出之间的关系可以表示为
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/Neural_Network2.png" width="400" >
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/5_Neural_networks/Neural_Network2.png" width="400" >
 </div>
 
 > 通过将得到的 $a_1^2,a_2^2,a_3^2$ 作为新特征，可以得到更为复杂的假设函数\
@@ -63,5 +63,5 @@ $$h_\theta(x)=a_1^3=g(\theta_{10}^2a_0^2+\theta_{11}^2a_1^2+\theta_{12}^2a_2^2+\
 * 若建立线性回归模型，预测值包含4个值，若用神经网络表示，此时输出层由单维向量变为多维向量，根据预测得到的多维向量值来确定类别
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/Neural_Network3.png" width="600" >
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/5_Neural_networks/Neural_Network3.png" width="600" >
 </div>

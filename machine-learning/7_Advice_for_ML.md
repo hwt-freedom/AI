@@ -40,11 +40,17 @@ $$J_{test}(\theta)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}(h_\theta(x^i)-y^i)^2
 #### 偏置与方差
 ##### 诊断偏差与方差
 * 高偏差、恰好、高方差示意图
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/1.png" width = "400">
+</div>
 
 > 高偏差(high bias)：欠拟合\
 > 高方差(high variance)：过拟合
 
 * 训练集和交叉验证集的代价函数误差与多项式的次数关系
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/2.png" width = "400">
+</div>
 
 > 随着多项式阶数d的增加，训练误差将趋于减小\
 > 随着多项式阶数d的增加，交叉验证误差将先减小，后增加，形成凸曲线\
@@ -62,12 +68,21 @@ $$J_{test}(\theta)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}(h_\theta(x^i)-y^i)^2
 > 3，选择得出交叉验证误差最小的模型\
 > 4，运用步骤3中选出模型对测试集计算得出泛化误差，判断其是否具有良好的问题概括性
 * 训练集误差和交叉验证集误差随 $lambda$ 的变化示意图
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/3.png" width = "400">
+</div>
 
 ##### 学习曲线(Learning Curves)
 * 利用学习曲线判断算法是否处于偏差或方差的问题
 * 高偏差/欠拟合时的学习曲线
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/4.jpg" width = "400">
+</div>
 
 * 高方差/过拟合时的学习曲线
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/5.jpg" width = "400">
+</div>
 
 ##### 决定下一步做什么
 * 尝试获得更多训练实例：高方差
@@ -80,7 +95,9 @@ $$J_{test}(\theta)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}(h_\theta(x^i)-y^i)^2
 ##### 诊断神经网络
 * 较小的神经网络，类似于参数较少的情况，容易导致高偏差和欠拟合，但计算复杂度较小
 * 较大的神经网络，类似于参数较多的情况，容易导致高方差和过拟合，虽然计算复杂度较大，但还是可以通过正则化的方法调整使得更加适应数据
-
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/machine-learning/picture/7_Advice_for_ML/6.jpg" width = "400">
+</div>
 
 > 通常选择较大的神经网络并采用正则化处理会比采用较小的神经网络效果更好
 * 选择神经网络的建议：从一层开始逐渐增加层数，选择交叉验证集误差最小的神经网络模型。
