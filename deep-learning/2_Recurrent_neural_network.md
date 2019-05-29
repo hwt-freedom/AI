@@ -20,8 +20,9 @@
 #### 用one-hot向量表示一个单词
 * 首先建立一个词汇表 vocabulary
 * one-hot向量表示单词：每个单词用一个和词表长度一样的向量来表示，向量中除了这个单词所在位置为1，其余全都为0
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  one-hot示意图  1.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN1.png" width = "650">
+</div>
 
 > 例如：$x^{<1>}$ 表示Harry这个单词，由于在vocabulary中，其位置在第1075行，因此 $x^{<1>}$ 是一个第1075行是1，其余值都是0的向量
 * 利用one-hot表示方法表示输入X，用序列模型在输入X和目标输出Y之间建立一个映射
@@ -38,8 +39,9 @@ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  one-hot示意图  1.png
 * 首先将第一个单词 $x^{<1>}$ 输入神经网络，并预测 $y^{<1>}$
 * 再将第二个单词 $x^{<2>}$ 输入神经网络，同时将第一步计算的激活值 $a^{<1>}$ 也输入到神经网络中，共同预测 $y^{<2>}$
 * 重复第二步，直到所有单词都训练完毕
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT RNN模型示意图  2.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN2.jpg" width = "500">
+</div>
 
 > 在零时刻需要构造一个激活值 $a^{<0>}$，通常使用零向量作为零时刻的伪激活值输入神经网络
 * RNN从左到右扫描数据，每个时间步的参数也是 **共享** 的，从输入到隐藏层的参数表示为 $W_{ax}$ ，水平方向激活值向下一层输入的参数表示为 $W_{aa}$，从隐藏层到输出层的参数表示为 $W_{ya}$
@@ -59,10 +61,16 @@ $$[W_{aa}\vdots W_{aw}]=W_a$$
 $$g_1(W_{aa}a^{<t-1>}+W_{ax}x^{<t>}+b_a)=g_1(W_a[a^{<t-1>},x^{<t>}]+b_a)$$
 * 同理对于 $\hat{y}$ ，也用更简洁的形式表示
 $$\hat{y}^{<t>}=g_2(W_{ya}a^{<t>}+b_y)=g_2(W_{y}a^{<t>}+b_y)$$
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT  RNN前向传播示意图 3.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN3.jpg" width = "500">
+</div>
 
 #### 通过时间的反向传播(Backpropagation through time)
+* 反向传播过程示意图
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN4.jpg" width = "500">
+</div>
+
 ##### 损失函数
 * 元素损失函数
 $$L^{<t>}(\hat{y}^{<t>},y^{<t>})=-y^{<t>}log\hat{y}^{<t>}-(1-\hat{y}^{<t>})log(1-\hat{y}^{<t>})$$
@@ -71,28 +79,33 @@ $$L^{<t>}(\hat{y}^{<t>},y^{<t>})=-y^{<t>}log\hat{y}^{<t>}-(1-\hat{y}^{<t>})log(1
 $$L(\hat{y},y)=\sum^{T_x}_{t=1}L^{<t>}(\hat{y}^{<t>},y^{<t>})$$
 > 对每个单独时间步的损失函数求和
 * 通过反向传播算法在相反的方向上进行计算和传递信息，最终就是将前向传播的箭头反过来并计算得到所有合适的量，再通过 **导数** 相关的参数，用梯度下降法来更新参数
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT RNN反向传播示意图 RNN4.jpg RNN5.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN5.jpg" width = "500">
+</div>
 
 #### 不同结构的循环神经网络
 ##### 多对一（情感分类）
 * 情感分类问题：$x$ 输入一个序列，$y$ 可能是一个数字，RNN读入整个句子，在最后一个时间上得到输出
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 多对一示意图 R6.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN6.png" width = "250">
+</div>
 
 ##### 一对多（音乐生成）
 * 音乐生成问题：$x$ 输入想要的音乐类型或想要音乐的第一个音符，甚至是输入零向量，$y$ 为一段音乐
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 一对多示意图 R7.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN7.png" width = "250">
+</div>
 
 ##### 多对多（机器翻译）
 * 机器翻译问题：$x$ 输入句子单词的数量，比如说一个法语的句子，$y$ 输出句子单词的数量，比如说翻译成英语，两个句子的长度可能不同
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT   R8.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN8.png" width = "250">
+</div>
 
 ##### 结构总结
-
-ttttttttttt R9.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN9.png" width = "500">
+</div>
 
 
 #### 语言模型和序列生成（Language model and sequence generation）
@@ -104,8 +117,9 @@ ttttttttttt R9.png
 > Tokenize：将句子使用字典库标记化，将每个单词都转换成对应的one-hot向量\
 > EOS：句子的结尾用EOS标记\
 > UNK：未出现在字典库中的词使用UNK表示
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 标识化相关图片 R10.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN10.jpg" width = "500">
+</div>
 
 * RNN模型建立过程
 > 使用零向量对输出进行预测，输入RNN，即由softmax分类器预测第一个单词是某个单词的可能性，出现概率最高的词即为输出的词，记作 $\hat{y}^{<1>}$ 其中softmax输出个数与词汇表vocabulary个数相同\
@@ -114,8 +128,9 @@ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 标识化相关图片 R10.jpg
 * 利用softmax损失函数计算loss，更新网络参数，提升语言模型的准确率
 $$L(\hat{y},y)=\sum^{T_x}_{t=1}L^{<t>}(\hat{y}^{<t>},y^{<t>})$$
 > 将每一个softmax层输出概率相乘，即可得到整体句子出现的概率
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT RNN模型图片 R11.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN11.jpg" width = "500">
+</div>
 
 #### 对新序列采样（Sampling novel sequence）
 * 前提：已得到训练完毕的RNN
@@ -125,13 +140,15 @@ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT RNN模型图片 R11.jpg
 > 自行设置结束的时间步
 * 对于UNK标志的词，如果不希望在结果中出现，可以在采样过程中当出现UNK标志时，对剩余词进行重采样，确保输出时没有UNK标志
 * 采样过程示意图
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT R12.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN12.jpg" width = "500">
+</div>
 
 #### 基于字符的RNN语言模型
 * 主要思想：基于字符，将所有可能出现的字符加入字典，例如a~z的字符，也可以包括空格、标点符号、数字，若需要区分大小写，还可以加上字符A~Z
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 字符RNN模型图片R13.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN13.jpg" width = "500">
+</div>
 
 * 优势：不用担心出现未知标识
 * 缺点：得到的序列通常很长很多，不善于捕捉句子中的关系，捕捉范围也比基于单词的RNN短，计算成本较高
@@ -148,20 +165,24 @@ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT 字符RNN模型图片R13.jpg
 
 #### Gated Recurrent Unit（门控循环单元 GRU）
 ##### RNN单元的可视化呈现
-
-TTTTTTTTTTTTTTTTTTTTTTTTT RNN单元可视化图片 R14.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN14.jpg" width = "500">
+</div>
 
 ##### GRU单元核心思想
 * 核心思想：相比于普通的RNN，GRU增加了一个记忆细胞C（memory cell），其提供了长期的记忆能力
 * 根据实际需要记忆的内容决定隐藏激活值的维度，并在每一个时间步对记忆细胞进行更新
 
 ##### 简化的GRU单元
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT GRU单元简化的图片 R15.png
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN15.png" width = "500">
+</div>
 
 ##### 完整的GRU单元
 * 完整GRU单元模型
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT GRU完整单元的图片  R16.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN16.jpg" width = "350">
+</div>
 
 * GRU单元计算公式
 $$\hat{c}^{<t>}=tanh(W_c[\Gamma_r*c^{<t-1>},x^{<t>}]+b_c)$$
@@ -179,8 +200,14 @@ $$a^{<t>}=c^{<t>}$$
 * 核心思想：比GRU更为强大和通用，$a^{<t>}$ 和 $c^{<t>}$ 不再相等，具有更新门、输出门和遗忘门
 ##### LSTM模型
 * 模型可视化示意图
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN17.jpg" width = "500">
+</div>
 
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT LSTM模型前向传播可视化示意图 RNN17.jpg R18.jpg
+* LSTM单元可视化示意图
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN18.jpg" width = "500">
+</div>
 
 * LSTM单元计算公式
 $$\hat{c}^{<t>}=tanh(W_c[a^{<t-1>},x^{<t>}]+b_c)$$
@@ -199,8 +226,9 @@ $$a^{<t>}=\Gamma_o*c^{<t>}$$
 #### 双向循环神经网络(Bidirectional RNN)
 * 提出原因：对于某处的序列，不仅仅需要获取之前的信息，还可以获取未来的信息
 * BRNN结构示意图
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT BRNN结构示意图 R19.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN19.jpg" width = "400">
+</div>
 
 * 对于时间步 $t$ ，得到正向和反向激活值后，可以利用下述公式预测结果
 $$\hat{y}=g(W_g[\overleftarrow{a}^{<t>},\overrightarrow{a}^{<t>}]+b_y) $$
@@ -211,5 +239,6 @@ $$\hat{y}=g(W_g[\overleftarrow{a}^{<t>},\overrightarrow{a}^{<t>}]+b_y) $$
 #### 深度RNN
 * 对于RNN而言，由于时间的维度足够大，因此不同于标准神经网络或卷积神经网络那样拥有大量隐含层，RNN堆叠达到3层就已经足够大，若需要堆叠多层，一般会删去水平连接
 * 深度RNN结构示意图
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT Deep RNN示例 R20.jpg
+<div align="center">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/RNN/RNN20.jpg" width = "400">
+</div>
