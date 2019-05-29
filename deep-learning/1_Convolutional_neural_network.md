@@ -8,17 +8,17 @@
 #### 边缘检测
 * 垂直边缘检测中的卷积运算
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network1.png" width = "500">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network1.png" width = "500">
 </div>
 
 * 垂直边缘检测的亮暗示意结果
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network2.png" width = "400">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network2.png" width = "400">
 </div>
 
 * 垂直边缘检测和水平边缘检测的滤波器
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network3.png" width = "400">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network3.png" width = "400">
 </div>
 
 * 卷积神经网络将滤波器作为学习的参数，训练神经网络的目的就是学习这些参数
@@ -44,7 +44,7 @@
 ##### RGB图像卷积
 * RGB图像卷积操作示意图
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network4.png" width = "400">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network4.png" width = "400">
 </div>
 
 > 图像的通道数必须和滤波器的通道数相匹配\
@@ -86,7 +86,7 @@ $$a^{[1]}=g(z^{[1]})$$
 * 池化的类型：最大池化、平均池化
 * 最大池化示意图
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network5.png" width = "500">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network5.png" width = "500">
 </div>
 
 > 最大池化比平均池化更为常用，池化的参数有矩阵的尺寸 $f$ 和步长 $s$\
@@ -96,12 +96,12 @@ $$a^{[1]}=g(z^{[1]})$$
 #### 卷积神经网络示例
 * 典型CNN示意图
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network6.png" width = "500">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network6.png" width = "500">
 </div>
 
 * 各层参数统计示意图
 <div align="center">
-<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/Convolutional_neural_network7.png" width = "500">
+<img src="https://raw.githubusercontent.com/hwt-freedom/AI/master/deep-learning/pictures/CNN/Convolutional_neural_network7.png" width = "500">
 </div>
 
 * 卷积层的参数相对较少
